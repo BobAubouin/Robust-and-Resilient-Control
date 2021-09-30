@@ -91,16 +91,21 @@ Xk = Xk_1;
 %% Zono Constraints
 Zono = mpc.zono;
 c_u = repmat(Zono.cu_mpc-u0,N,1);
-c_x = repmat(Zono.cx_mpc-x0,N,1);
+c_x = repmat(Zono.cx_mpc-x0, N-1 , 1);
+c_x = [c_x ; Zono.cterm];
 R_u = [];
 R_x = [];
 
-for i=1:N
+for i=1:N-1
     R_u = blkdiag(R_u,Zono.Ru_mpc);
     R_x = blkdiag(R_x,Zono.Rx_mpc);
 end
-nsu = size(Zono.Ru_mpc,2)*N;
-nsx = size(Zono.Rx_mpc,2)*N;
+
+R_u = blkdiag(R_u,Zono.Ru);
+R_x = blkdiag(R_x,Zono.Rterm);
+
+nsu = size(Zono.Ru,2)*N;
+nsx = size(R_x,2);
 
 S2Sx = [zeros(nsx,nsu),eye(nsx)];
 S2Su = [eye(nsu),zeros(nsu,nsx)];
@@ -165,7 +170,7 @@ if ~isfield(prev_Data,'Linv')
         Aineq(2*i,i)= -1;
     end
     
-    Aeq = R_x*S2Sx - Cu*R_u * S2Su ;%- M*zono.Rz*S2Sz;
+    Aeq = R_x*S2Sx - Cu*R_u * S2Su ;
     
     
 
@@ -255,18 +260,21 @@ if ~in(Zu,U(:,1))
     disp("oups")
 end
 %%
-% Xplot = zeros(n,N+1);
-% Xplot (:,1) = prev_Data.Xnominal;
-% Sx = S2Sx*S;
-% for i=2:N+1 
-%     %Xplot (:,i) = Zono.Rx_mpc*Sx(12*i-23:12*i-12) + Zono.cx_mpc;
-%     Xplot (:,i) = Zono.Rx_mpc*Sx(7*i-13:7*i-7) + Zono.cx_mpc;
-% end  
-% plot(Xplot(1,:),Xplot(2,:))
-% hold on
-% plot(Xplot(1,1),Xplot(2,1),'ro')
-% plot(x0(1,1),x0(2,1),'gx')
-% grid on
+Xplot = zeros(n,N+1);
+Xplot (:,1) = prev_Data.Xnominal;
+Sx = S2Sx*S;
+for i=2:N
+    %Xplot (:,i) = Zono.Rx_mpc*Sx(12*i-23:12*i-12) + Zono.cx_mpc;
+    Xplot (:,i) = Zono.Rx_mpc*Sx(7*i-13:7*i-7) + Zono.cx_mpc;
+    %Xplot (:,i) = Zono.Rx*Sx(2*i-3:2*i-2) + Zono.cx;
+end  
+Xplot (:,N+1) = Zono.Rterm*Sx(64:end) + Zono.cterm+x0; 
+plot(Xplot(1,:),Xplot(2,:));
+hold on
+plot(Xplot(1,1),Xplot(2,1),'ro');
+plot(zonotope([Zono.cterm+x0,Zono.Rterm]));
+plot(x0(1,1),x0(2,1),'gx');
+grid on
 
 
 
