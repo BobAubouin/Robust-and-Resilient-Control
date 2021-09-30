@@ -13,4 +13,9 @@ This repository host the code developed during my master thesis: "Toward Robust 
 * **calcul set:** Contains various functions to calcul specific set (like terminal set, RPI set etc..)
 * **Bench:** Use the BRCM toolbox to generate the one room and height rooms model. Also includes the reduction order of the height rooms model.
 
+# Requirement
 
+* MPC toolbox from MATLAB
+* CORA 2021 : https://tumcps.github.io/CORA/
+* MPT3 toolbox : https://www.mpt3.org
+* BRCM toolbox :https://brcm.ethz.ch/doku.php
