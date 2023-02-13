@@ -1,7 +1,7 @@
 # Robust-and-Resilient-Control
 This repository host the code developed during my master thesis: "Toward Robust and Resilient Cyber-Physical Systems: State awareness and Control under Physical faults and Cyber-attacks" at the IMS laboratory.
 
-This repository is also host the code used to generate the illustrative exemple of the conference paper: *Bob Aubouin--Pairault, Arthur Perodou, Christophe Combastel, Ali Zolghadri. Resilient tube-based MPC for Cyber-Physical Systems Under DoS Attacks. 11th IFAC Symposium on Fault Detection, Supervision and Safety for Technical Processes - SAFEPROCESS 2022, Jun 2022, Pafos, Cyprus. pp.278-284*, [doi](10.1016/j.ifacol.2022.07.142). Please cite this paper if your are using the code.
+This repository is also host the code used to generate the illustrative exemple of the conference paper: *Bob Aubouin--Pairault, Arthur Perodou, Christophe Combastel, Ali Zolghadri. Resilient tube-based MPC for Cyber-Physical Systems Under DoS Attacks. 11th IFAC Symposium on Fault Detection, Supervision and Safety for Technical Processes - SAFEPROCESS 2022, Jun 2022, Pafos, Cyprus. pp.278-284*, doi:10.1016/j.ifacol.2022.07.142. Available [here](https://hal.science/hal-03691467). Please cite this paper if your are using the code.
 
 
 # Folders Organization
