@@ -14,7 +14,7 @@ This repository is also host the code used to generate the illustrative exemple 
 * **Smart building simu_8 room:** Contains simulation on the height rooms model (simple mpc and robuste MPC).
 * **calcul set:** Contains various functions to calcul specific set (like terminal set, RPI set etc..)
 * **Bench:** Use the BRCM toolbox to generate the one room and height rooms model. Also includes the reduction order of the height rooms model.
-* **Bench:** Code to generate the figures present in our article.
+* **Paper:** Code to generate the figures present in our article.
 
 # Requirement
 
