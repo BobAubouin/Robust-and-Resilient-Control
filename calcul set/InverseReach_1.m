@@ -10,10 +10,12 @@ function Xn = InverseReach_1(Xf,A,B,Xu,N,nbDoS)
 %           - N: prediction horizon of the MPC
 %           - Number of DoS attacks
 %Outputs:   - Xn : Terminal feasible set (as a CORA set).
-Xn = Xf;
+V = vertices(Xf);
+Xn = mptPolytope(Polyhedron('V',V'));
 iA = inv(A);
 for i=1:N
     if i<=N-nbDoS
+        disp(Xn)
         Xn = iA*(Xn+(-1*B*Xu));
     else
       Xn = iA*Xn;  

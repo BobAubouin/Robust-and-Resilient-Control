@@ -227,19 +227,19 @@ U(:,1) = prev_Data.u_prec - K*(Xk_1 - prev_Data.Xnominal);
 %     disp("oups")
 % end
 %%
-Xplot = zeros(n,N+1);
-Xplot (:,1) = prev_Data.Xnominal;
-Sx = Beta+Cu*S;
-for i=2:N+1 
-    %Xplot (:,i) = Zono.Rx_mpc*Sx(12*i-23:12*i-12) + Zono.cx_mpc;
-    Xplot (:,i) = Sx(7*i-13:7*i-7)+x0;
-    %Xplot (:,i) = Sx(2*i-3:2*i-2)+x0;
-end  
-plot(Xplot(1,:),Xplot(2,:))
-hold on
-plot(Xplot(1,1),Xplot(2,1),'ro')
-plot(x0(1,1),x0(2,1),'gx')
-grid on
+% Xplot = zeros(n,N+1);
+% Xplot (:,1) = prev_Data.Xnominal;
+% Sx = Beta+Cu*S;
+% for i=2:N+1 
+%     %Xplot (:,i) = Zono.Rx_mpc*Sx(12*i-23:12*i-12) + Zono.cx_mpc;
+%     %Xplot (:,i) = Sx(7*i-13:7*i-7)+x0;
+%     Xplot (:,i) = Sx(2*i-3:2*i-2)+x0;
+% end  
+% plot(Xplot(1,:),Xplot(2,:))
+% hold on
+% plot(Xplot(1,1),Xplot(2,1),'ro')
+% plot(x0(1,1),x0(2,1),'gx')
+% grid on
 
 
 
