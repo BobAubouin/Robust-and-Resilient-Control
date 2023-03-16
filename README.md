@@ -19,6 +19,6 @@ This repository is also host the code used to generate the illustrative exemple 
 # Requirement
 
 * MPC toolbox from MATLAB
-* CORA 2021 : https://tumcps.github.io/CORA/
-* MPT3 toolbox : https://www.mpt3.org
+* CORA 2022 : https://tumcps.github.io/CORA/
+* MPT3 toolbox : https://www.mpt3.org (version of the 16_03_2023)
 * BRCM toolbox :https://brcm.ethz.ch/doku.php
